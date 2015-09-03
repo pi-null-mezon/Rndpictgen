@@ -26,3 +26,9 @@
 *.exe
 *.out
 *.app
+
+# MyAdditions
+*.pro.user*
+/Install
+*.db
+*.qm
