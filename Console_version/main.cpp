@@ -3,9 +3,9 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QFont>
-#include <windows.h>
+#include <QTime>
+#include <QApplication>
 #include <cstdio>
-#include <QGuiApplication>
 //---------------------------------------------------------------------------------
 
 QColor qrandcolor();
@@ -22,9 +22,10 @@ enum Primitives {RectanglePrimitive, TrianglePrimitive, EllipsePrimitive, Circle
 //---------------------------------------------------------------------------------
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv); //this instance and this call are provided here only for QFont, because nonGui application can not handle this class (
+    QApplication app(argc, argv); //this instance and followed call are provided here only for QFont, because nonGui application can not handle this class (
+    app.processEvents();
 
-    qsrand(GetTickCount()); // to seed pseudo-random number generator
+    qsrand((uint)QTime::currentTime().msec()); // to seed pseudo-random number generator
     int m_exitCode;
     QString m_fileName("Default.png");
     int m_pictureWidth = 0;
@@ -137,7 +138,7 @@ int main(int argc, char *argv[])
         }
     } else {
         std::printf("Abort: zero picture size or zero divider");
-        m_exitCode = -1;       
+        m_exitCode = -1;
     }
     return m_exitCode;
 }
