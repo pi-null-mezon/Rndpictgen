@@ -33,17 +33,17 @@ int main(int argc, char *argv[])
     QString m_fileName("default.png");
     int m_pictureWidth = 1280;
     int m_pictureHeight = 720;
-    uint m_rectNumber = 5;
-    uint m_ellipseNumber = 3;
-    uint m_triangleNumber = 7;
-    uint m_circleNumber = 2;
+    uint m_rectNumber = 0;
+    uint m_ellipseNumber = 0;
+    uint m_triangleNumber = 0;
+    uint m_circleNumber = 0;
     uint m_sizeDivisor = 31;
-    uint m_saltpepperStep = 171;
-    uint m_noiseDeviation = 11;
+    uint m_saltpepperStep = 450;
+    uint m_noiseDeviation = 7;
     bool f_grayscale = false;
-    bool f_contour = false;
+    bool f_contour = true;
     bool f_stamp = false;
-    bool f_gradient = false;
+    bool f_gradient = true;
 
     std::vector<char> v_symbol;
     std::vector<int>  v_number;
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
                 m_sizeDivisor = QString(++(*argv)).toUInt();
                 break;
             case 'g':
-                f_grayscale = true;
+                f_grayscale = !f_grayscale;
                 break;
             case 's':
                 m_saltpepperStep = QString(++(*argv)).toUInt();
@@ -91,13 +91,13 @@ int main(int argc, char *argv[])
                 m_noiseDeviation = QString(++(*argv)).toUInt();
                 break;
             case 'b':
-                f_contour = true;
+                f_contour = !f_contour;
                 break;
             case 'i':
-                f_stamp = true;
+                f_stamp = !f_stamp;
                 break;
             case 'u':
-                f_gradient = true;
+                f_gradient = !f_gradient;
                 break;
             case 'h':
                 std::printf("%s v.%s, designed by %s\n"
