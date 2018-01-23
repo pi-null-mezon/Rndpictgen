@@ -1,4 +1,4 @@
-# randpicture
+# Rndpictgen
 Application was designed for automatical random picture generation.
 Generates pictures with user defined quantities of geometric primitives (triangles, rects, ellipses) and ASCII symbols. Automatically scales, rotates and translates primitives over picture area. Distorts picture by adding noise and illumination gradient. To read a list of all options send to cmd -h option.
 
